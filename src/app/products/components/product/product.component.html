@@ -1,0 +1,19 @@
+<table>
+    <caption>{{name}}</caption>
+    <tr><td>Description</td><td>{{description}}</td></tr>
+    <tr><td>Price</td><td>{{price}}</td></tr>
+    <tr><td>Category</td><td>{{category}}</td></tr>
+    <tr>
+      <td>Availability</td>
+      <td>
+        <div *ngIf="isAvailable; else notAvailable">
+            <button (click)="onBuy()">Buy</button>
+        </div>
+        <ng-template #notAvailable>Notify when appear</ng-template>
+      </td>
+    </tr>
+    <tr>
+      <td>Available colors</td>
+      <td *ngFor="let color of colors;">{{color}}</td>
+    </tr>
+  </table>
