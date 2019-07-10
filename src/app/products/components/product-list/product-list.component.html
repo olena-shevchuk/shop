@@ -1,6 +1,6 @@
 <div *ngFor="let product of products">
   <table>
-    <caption>{{product.name}}</caption>
+    <tr><th>{{product.name}}</th></tr>
     <tr><td>Description</td><td>{{product.description}}</td></tr>
     <tr><td>Price</td><td>{{product.price}}</td></tr>
     <tr><td>Category</td><td>{{product.category}}</td></tr>
@@ -13,7 +13,7 @@
     </tr>
     <tr>
       <td>Available colors</td>
-      <td *ngFor="let color of product.colors;">{{color}}</td>
+      <td *ngFor="let color of product.colors">{{color}}</td>
     </tr>
   </table>
   <p></p>

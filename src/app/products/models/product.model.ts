@@ -1,6 +1,6 @@
 import { Category, Color } from '../../shared/enums';
 
-export interface IProduct {
+export interface ProductModel {
     id: number;
     name: string;
     description?: string;

@@ -9,9 +9,9 @@ import { Category, Color } from '../../../shared/enums';
 })
 export class ProductComponent implements OnInit {
 
-  name = 'Product name';
-  description = 'Product description';
-  price = 0.00;
+  name = 'PRODUCT';
+  description = 'Some product description';
+  price = 59.99;
   category = Category.Decor;
   isAvailable = true;
   colors = [ Color.White, Color.Black ];
