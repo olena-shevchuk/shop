@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { ProductModel } from '../../models/product.model';
-import { Category, Color } from '../../../shared/enums';
+import { ProductModel } from '../models/product.model';
+import { Category, Color } from '../../shared/enums';
 
 const products: Array<ProductModel> = [{
   id: 0,
@@ -33,5 +33,3 @@ export class ProductsService {
     return products;
   }
 }
-
-// Папка products-service лишняя

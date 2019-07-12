@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { CartModel } from '../../models/cart.model';
+import { CartModel } from '../models/cart.model';
 
 const cartProducts: Array<CartModel> = [{
   id: 0,
