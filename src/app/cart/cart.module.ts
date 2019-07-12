@@ -1,0 +1,21 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { CartComponent } from './components/cart/cart.component';
+import { CartService } from './services/cart.service';
+
+@NgModule({
+  declarations: [
+    CartComponent
+  ],
+  providers: [
+    CartService
+  ],
+  exports: [
+    CartComponent
+  ],
+  imports: [
+    CommonModule
+  ]
+})
+export class CartModule { }
