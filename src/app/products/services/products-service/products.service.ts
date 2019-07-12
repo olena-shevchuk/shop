@@ -33,3 +33,5 @@ export class ProductsService {
     return products;
   }
 }
+
+// Папка products-service лишняя
