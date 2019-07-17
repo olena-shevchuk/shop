@@ -6,7 +6,7 @@ import { Category, Color } from '../../shared/enums';
 const products: Array<ProductModel> = [{
   id: 0,
   name: 'FIRST PRODUCT',
-  description: 'Some description',
+  description: 'First description of some product',
   price: 150.75,
   category: Category.Kitchen,
   isAvailable: true,
@@ -15,7 +15,7 @@ const products: Array<ProductModel> = [{
 {
   id: 1,
   name: 'SECOND PRODUCT',
-  description: 'Some other description',
+  description: 'Second description of some product',
   price: 299.99,
   category: Category.Textiles,
   isAvailable: false,

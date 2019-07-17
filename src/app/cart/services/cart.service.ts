@@ -1,28 +1,30 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
+import { ProductModel } from 'src/app/products/models/product.model';
 import { CartModel } from '../models/cart.model';
-
-const cartProducts: Array<CartModel> = [{
-  id: 0,
-  name: 'FIRST PRODUCT IN CART',
-  price: 260.13,
-  quantity: 5
-},
-{
-  id: 1,
-  name: 'SECOND PRODUCT IN CART',
-  price: 999.00,
-  quantity: 1
-}];
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  constructor() { }
+  private channel = new Subject<CartModel>();
+  private cartData: CartModel;
 
-  getProducts(): Array<CartModel> {
-    return cartProducts;
+  channel$ = this.channel.asObservable();
+
+  publishData(data: ProductModel) {
+
+    this.cartData = this.convertProductModelToCartModel(data);
+    this.channel.next(this.cartData);
+  }
+
+  private convertProductModelToCartModel(productData: ProductModel): CartModel {
+    return {
+      id: productData.id,
+      name: productData.name,
+      price: productData.price
+    } as CartModel;
   }
 }

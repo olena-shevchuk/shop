@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { CartService } from '../../services/cart.service';
 import { CartModel } from '../../models/cart.model';
@@ -8,14 +9,22 @@ import { CartModel } from '../../models/cart.model';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
 
-  cartProducts: Array<CartModel>;
+  cartProducts: Array<CartModel> = new Array<CartModel>();
+  private sub: Subscription;
+  private productInCart: CartModel;
 
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.cartProducts = this.cartService.getProducts();
+    this.sub = this.cartService.channel$.subscribe(
+      data => (this.pushDataToCart(data))
+    );
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   countTotalPrice() {
@@ -28,4 +37,17 @@ export class CartComponent implements OnInit {
     return totalPrice;
   }
 
+  private pushDataToCart(cartData: CartModel): void {
+
+    this.productInCart = this.cartProducts.find(item => item.id === cartData.id);
+
+    if (this.productInCart) {
+
+      this.productInCart.quantity++;
+    } else {
+
+      cartData.quantity = 1;
+      this.cartProducts.push(cartData);
+    }
+  }
 }

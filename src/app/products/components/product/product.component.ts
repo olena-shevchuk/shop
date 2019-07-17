@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { Category, Color } from '../../../shared/enums';
+import { ProductModel } from '../../models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -8,13 +8,11 @@ import { Category, Color } from '../../../shared/enums';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  @Input()
+  product: ProductModel;
 
-  name = 'PRODUCT';
-  description = 'Some product description';
-  price = 59.99;
-  category = Category.Decor;
-  isAvailable = true;
-  colors = [ Color.White, Color.Black ];
+  @Output()
+  buy: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
 
   constructor() {
   }
@@ -22,7 +20,7 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  onBuy() {
-    console.log('Purchase of this product');
+  onBuy(): void {
+    this.buy.emit(this.product);
   }
 }
