@@ -20,6 +20,15 @@ const products: Array<ProductModel> = [{
   category: Category.Textiles,
   isAvailable: false,
   colors: [ Color.White, Color.Black, Color.Grey ]
+},
+{
+  id: 2,
+  name: 'THIRD PRODUCT',
+  description: 'Third description of some product',
+  price: 98.15,
+  category: Category.Decor,
+  isAvailable: true,
+  colors: [ Color.Red, Color.Grey ]
 }];
 
 @Injectable({
