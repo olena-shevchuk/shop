@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ProductModel } from '../../models/product.model';
 import { ProductsService } from '../../services/products.service';
-import { CartService } from '../../../cart/services/cart.service';
+import { CommunicateService } from 'src/app/cart/services/communicate.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,13 +13,14 @@ export class ProductListComponent implements OnInit {
 
   products: Array<ProductModel>;
 
-  constructor(private productsService: ProductsService, private cartService: CartService) { }
+  constructor(private productsService: ProductsService, private communicateService: CommunicateService) { }
 
   ngOnInit() {
     this.products = this.productsService.getProducts();
   }
 
   onBuy(product: ProductModel): void {
-    this.cartService.publishData(product);
+
+    this.communicateService.publishData(product);
   }
 }

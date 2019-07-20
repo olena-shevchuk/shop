@@ -8,13 +8,18 @@ import { CartModel } from '../../models/cart.model';
   styleUrls: ['./cart-item.component.css']
 })
 export class CartItemComponent implements OnInit {
+
   @Input()
   product: CartModel;
 
   @Output()
-  addItem: EventEmitter<CartModel> = new EventEmitter<CartModel>();
-  deleteItem: EventEmitter<CartModel> = new EventEmitter<CartModel>();
-  remove: EventEmitter<CartModel> = new EventEmitter<CartModel>();
+  addItem = new EventEmitter<CartModel>();
+
+  @Output()
+  deleteItem = new EventEmitter<CartModel>();
+
+  @Output()
+  removeItem = new EventEmitter<CartModel>();
 
   constructor() { }
 
@@ -31,8 +36,8 @@ export class CartItemComponent implements OnInit {
     this.deleteItem.emit(this.product);
   }
 
-  onRemove(): void {
+  onRemoveItem(): void {
 
-    this.remove.emit(this.product);
+    this.removeItem.emit(this.product);
   }
 }

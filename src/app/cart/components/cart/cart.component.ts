@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 import { CartService } from '../../services/cart.service';
 import { CartModel } from '../../models/cart.model';
@@ -9,67 +8,38 @@ import { CartModel } from '../../models/cart.model';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit, OnDestroy {
+export class CartComponent implements OnInit {
 
-  cartProducts: Array<CartModel> = new Array<CartModel>();
-  private sub: Subscription;
-  private productInCart: CartModel;
+  cartProducts: Array<CartModel>;
 
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.sub = this.cartService.channel$.subscribe(
-      data => (this.pushDataToCart(data))
-    );
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.cartProducts = this.cartService.getProducts();
   }
 
   onAddItem(product: CartModel): void {
 
-    this.findProductInCart(product);
-    this.productInCart.quantity++;
+    this.cartService.addItem(product);
   }
 
   onDeleteItem(product: CartModel): void {
 
-    this.findProductInCart(product);
-    this.productInCart.quantity--;
+    this.cartService.deleteItem(product);
   }
 
-  onRemove(product: CartModel): void {
+  onRemoveItem(product: CartModel): void {
 
-    this.cartProducts.splice(this.cartProducts.indexOf(product), 1);
+    this.cartService.removeItem(product);
   }
 
-  countTotalPrice() {
-    let totalPrice = 0;
+  getTotalQuantity() {
 
-    this.cartProducts.forEach((value) => {
-      totalPrice += value.price * value.quantity;
-    });
-
-    return totalPrice;
+    return this.cartService.getTotalQuantity();
   }
 
-  private pushDataToCart(cartData: CartModel): void {
+  getTotalPrice() {
 
-    this.findProductInCart(cartData);
-
-    if (this.productInCart) {
-
-      this.productInCart.quantity++;
-    } else {
-
-      cartData.quantity = 1;
-      this.cartProducts.push(cartData);
-    }
-  }
-
-  private findProductInCart(product: CartModel): void {
-
-    this.productInCart = this.cartProducts.find(item => item.id === product.id);
+    return this.cartService.getTotalPrice();
   }
 }

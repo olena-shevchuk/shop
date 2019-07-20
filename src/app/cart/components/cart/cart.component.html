@@ -1,13 +1,16 @@
-<div *ngIf="cartProducts; else cartIsEmpty">
+<div *ngIf="cartProducts.length; else cartIsEmpty">
   <app-cart-item
     *ngFor="let product of cartProducts"
     [product]="product"
     (addItem)="onAddItem($event)"
     (deleteItem)="onDeleteItem($event)"
-    (remove)="onRemove($event)">
+    (removeItem)="onRemoveItem($event)">
   </app-cart-item>
   <div>
-    Total: {{countTotalPrice()}}
+    Total quantity: {{getTotalQuantity()}}
+  </div>
+  <div>
+    Total price: {{getTotalPrice()}}
     <p></p>
   </div>
 </div>

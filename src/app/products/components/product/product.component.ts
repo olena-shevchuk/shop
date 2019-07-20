@@ -8,11 +8,12 @@ import { ProductModel } from '../../models/product.model';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+
   @Input()
   product: ProductModel;
 
   @Output()
-  buy: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
+  buy = new EventEmitter<ProductModel>();
 
   constructor() {
   }
