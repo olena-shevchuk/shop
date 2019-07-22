@@ -1,27 +1,29 @@
-<table>
-  <tr><th>{{product.name}}</th></tr>
-  <tr><td>Price</td><td>{{product.price}}</td></tr>
-  <tr>
-    <td>Quantity</td>
-    <td>{{product.quantity}}</td>
-    <td>
-      <button (click)="onAddItem($event)">
-        +
-      </button>
-    </td>
-    <td>
-      <button (click)="onDeleteItem($event)">
-        -
-      </button>
-    </td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>
-      <button (click)="onRemoveItem($event)">
-        Remove
-      </button>
-    </td>
-  </tr>
-</table>
-<p></p>
+<div>
+  <table appBackgroundColor>
+    <tr><th>{{product.name}}</th></tr>
+    <tr><td>Price</td><td>{{product.price}}</td></tr>
+    <tr>
+      <td>Quantity</td>
+      <td>{{product.quantity}}</td>
+      <td>
+        <button (click)="onAddItem($event)">
+          +
+        </button>
+      </td>
+      <td>
+        <button (click)="onDeleteItem($event)">
+          -
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button (click)="onRemoveItem($event)">
+          Remove
+        </button>
+      </td>
+    </tr>
+  </table>
+  <p></p>
+</div>

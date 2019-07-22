@@ -1,21 +1,21 @@
-<table>
-  <tr><th>{{product.name}}</th></tr>
-  <tr><td>Description</td><td>{{product.description}}</td></tr>
-  <tr><td>Price</td><td>{{product.price}}</td></tr>
-  <tr><td>Category</td><td>{{product.category}}</td></tr>
-  <tr>
-    <td>Availability</td>
-    <td>
-      <button
-        [disabled]="!product.isAvailable"
-        (click)="onBuy($event)">
-          Buy
-      </button>
-    </td>
-  </tr>
-  <tr>
-    <td>Available colors</td>
-    <td *ngFor="let color of product.colors">{{color}}</td>
-  </tr>
-</table>
-<p></p>
+<table [ngStyle]="setStyle()">
+    <tr><th>{{product.name}}</th></tr>
+    <tr><td>Description</td><td>{{product.description}}</td></tr>
+    <tr><td>Price</td><td>{{product.price}}</td></tr>
+    <tr><td>Category</td><td>{{product.category}}</td></tr>
+    <tr>
+      <td>Availability</td>
+      <td>
+        <button
+          [disabled]="!product.isAvailable"
+          (click)="onBuy($event)">
+            Buy
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>Available colors</td>
+      <td *ngFor="let color of product.colors">{{color}}</td>
+    </tr>
+  </table>
+  <p></p>

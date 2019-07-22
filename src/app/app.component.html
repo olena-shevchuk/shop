@@ -1,13 +1,13 @@
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+  <h1 #appTitle></h1>
 </div>
 
-<h3>List of Products: </h3>
-<app-product-list></app-product-list>
-
-<h3>Cart: </h3>
-<app-cart></app-cart>
+<div>
+  <h3>List of Products: </h3>
+  <app-product-list></app-product-list>
+  
+  <h3>Cart: </h3>
+  <app-cart></app-cart>
+</div>
 
 <router-outlet></router-outlet>

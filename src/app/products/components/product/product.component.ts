@@ -24,4 +24,10 @@ export class ProductComponent implements OnInit {
   onBuy(): void {
     this.buy.emit(this.product);
   }
+
+  setStyle() {
+    return {
+      color: this.product.isAvailable ? 'black' : 'dimgrey'
+    };
+  }
 }

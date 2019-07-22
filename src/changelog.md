@@ -15,3 +15,6 @@
 14. СartItemComponent is created to display one product from CartComponent.
 15. Abilities to change quantity of products and to remove a product from a cart are added.
 16. CartService is modified to give datas to CartComponent and to count an quantity and a sum of products.
+17. Element <h1 #appTitle></h1> is added to AppComponent's layout. Title for application is installed using @ViewChild.
+18. When a mouse is over CartItemComponent then a background color of the component is changed. BackgroundColorDirective is created and registered in SharedModule. @HostBinding, @HostListener decorators are used.
+19. Directive ngStyle changes a color of an unavailable product to grey.

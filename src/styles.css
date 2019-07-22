@@ -1,11 +1,11 @@
 table {
-    border: 1px solid black;
-  }
+  border: 1px solid black;
+}
 
-  th, td {
-    border-bottom: 1px solid #ddd;
-  }
+th, td {
+  border-bottom: 1px solid #ddd;
+}
 
-  th:first-child, td:first-child {
-      background: #FFEBCD;
-  }
+th:first-child, td:first-child {
+  background: blanchedalmond;
+}
