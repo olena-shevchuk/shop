@@ -9,9 +9,12 @@ import { CartModel } from '../models/cart.model';
 })
 export class CartService implements OnDestroy {
 
+  private sub: Subscription;
+
   private cartProducts = new Array<CartModel>();
   private productInCart: CartModel;
-  private sub: Subscription;
+  private totalQuantity: number;
+  private totalPrice: number;
 
   constructor(private communicateService: CommunicateService) { }
 
@@ -29,23 +32,23 @@ export class CartService implements OnDestroy {
   }
 
   getTotalQuantity() {
-    let totalQuantity = 0;
+    this.totalQuantity = 0;
 
     this.cartProducts.forEach((value) => {
-      totalQuantity += value.quantity;
+      this.totalQuantity += value.quantity;
     });
 
-    return totalQuantity;
+    return this.totalQuantity;
   }
 
   getTotalPrice() {
-    let totalPrice = 0;
+    this.totalPrice = 0;
 
     this.cartProducts.forEach((value) => {
-      totalPrice += value.price * value.quantity;
+      this.totalPrice += value.price * value.quantity;
     });
 
-    return totalPrice;
+    return this.totalPrice;
   }
 
   addItem(product: CartModel): void {
@@ -70,6 +73,11 @@ export class CartService implements OnDestroy {
   removeItem(product: CartModel): void {
 
     this.cartProducts.splice(this.cartProducts.indexOf(product), 1);
+  }
+
+  removeAll(): void {
+
+    this.cartProducts.length = 0;
   }
 
   private pushDataToCart(cartData: CartModel): void {

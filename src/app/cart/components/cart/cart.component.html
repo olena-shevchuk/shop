@@ -13,6 +13,11 @@
     Total price: {{getTotalPrice()}}
     <p></p>
   </div>
+  <div>
+    <button (click)="onRemoveAll()">
+      Clear cart
+    </button>
+  </div>
 </div>
 <ng-template #cartIsEmpty>
   <h3>Cart is empty, please start shopping :)</h3>

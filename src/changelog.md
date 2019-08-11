@@ -18,3 +18,12 @@
 17. Element <h1 #appTitle></h1> is added to AppComponent's layout. Title for application is installed using @ViewChild.
 18. When a mouse is over CartItemComponent then a background color of the component is changed. BackgroundColorDirective is created and registered in SharedModule. @HostBinding, @HostListener decorators are used.
 19. Directive ngStyle changes a color of an unavailable product to grey.
+
+20. CartService is modified to have an ability making a cart empty.
+21. LocalStorageService is created for work with window.localStorage. It has methods for setting a value, getting a value from the storage and removing it from there.
+22. ConfigOptionsService is created to store a settings object. This service provides methods for setting and retrieving data.
+23. ConstantService is created as an object literal { App: "TaskManager", Ver: "1.0" }.
+24. GeneratorService is created for generating a random sequence of n characters from a-z, A-Z, 0-9.
+25. GeneratorFactoryService(n: number) is created to provide a generated string.
+26. AboutComponent is created and all mentioned services are injected into it. Decorator @Optional() is also used.
+27. BorderDirective adds a handler of a click event to a host element. It sets a red border to "Buy" button.

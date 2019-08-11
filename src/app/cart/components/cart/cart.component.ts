@@ -33,6 +33,11 @@ export class CartComponent implements OnInit {
     this.cartService.removeItem(product);
   }
 
+  onRemoveAll(): void {
+
+    this.cartService.removeAll();
+  }
+
   getTotalQuantity() {
 
     return this.cartService.getTotalQuantity();
