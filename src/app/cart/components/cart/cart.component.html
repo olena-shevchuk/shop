@@ -1,16 +1,24 @@
 <div *ngIf="cartProducts.length; else cartIsEmpty">
-  <app-cart-item
-    *ngFor="let product of cartProducts"
-    [product]="product"
-    (addItem)="onAddItem($event)"
-    (deleteItem)="onDeleteItem($event)"
-    (removeItem)="onRemoveItem($event)">
-  </app-cart-item>
+  <select [(ngModel)]="sortBy">
+    <option selected>Price</option>
+    <option>Quantity</option>
+    <option>Name</option>
+  </select>
+  <p></p>
+  <ng-container *ngIf="(cartProducts | orderBy: sortBy) as result">
+    <app-cart-item
+      *ngFor="let product of result"
+      [product]="product"
+      (addItem)="onAddItem($event)"
+      (deleteItem)="onDeleteItem($event)"
+      (removeItem)="onRemoveItem($event)">
+    </app-cart-item>
+  </ng-container>
   <div>
     Total quantity: {{getTotalQuantity()}}
   </div>
   <div>
-    Total price: {{getTotalPrice()}}
+    Total price: {{getTotalPrice() | currency: 'USD':'symbol':'1.2-2'}}
     <p></p>
   </div>
   <div>

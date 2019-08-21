@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, Inject, Optional } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ConfigOptionsService } from 'src/app/core/services/config-options.service';
@@ -9,7 +10,7 @@ import { GeneratorService } from 'src/app/core/services/generator.service';
 const user = {
   firstName: 'Olena',
   secondName: 'Shevchuk',
-  logonTime: Date.now()
+  logonTime: new DatePipe('en-US').transform(Date.now(), 'MMM d, y, h:mm:ss a')
 };
 
 const config = {

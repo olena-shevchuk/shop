@@ -11,6 +11,7 @@ import { CartModel } from '../../models/cart.model';
 export class CartComponent implements OnInit {
 
   cartProducts: Array<CartModel>;
+  sortBy = 'Price';
 
   constructor(private cartService: CartService) { }
 

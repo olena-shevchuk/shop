@@ -1,7 +1,7 @@
 <table [ngStyle]="setStyle()">
     <tr><th>{{product.name}}</th></tr>
     <tr><td>Description</td><td>{{product.description}}</td></tr>
-    <tr><td>Price</td><td>{{product.price}}</td></tr>
+    <tr><td>Price</td><td>{{product.price | currency: 'USD'}}</td></tr>
     <tr><td>Category</td><td>{{product.category}}</td></tr>
     <tr>
       <td>Availability</td>

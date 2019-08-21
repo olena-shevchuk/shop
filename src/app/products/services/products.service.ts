@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 import { ProductModel } from '../models/product.model';
 import { Category, Color } from '../../shared/enums';
@@ -38,7 +39,9 @@ export class ProductsService {
 
   constructor() { }
 
-  getProducts(): Array<ProductModel> {
-    return products;
+  getProducts(): Observable<Array<ProductModel>> {
+    if (products != null) {
+      return of(products);
+    }
   }
 }

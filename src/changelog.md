@@ -27,3 +27,10 @@
 25. GeneratorFactoryService(n: number) is created to provide a generated string.
 26. AboutComponent is created and all mentioned services are injected into it. Decorator @Optional() is also used.
 27. BorderDirective adds a handler of a click event to a host element. It sets a red border to "Buy" button.
+
+28. Date pipe is used for logonTime property of user in about.component.ts
+29. Currency pipe is used for product's price in product.component.html, cart-item.component.html and for total price in cart.component.html
+30. Method getProducts() in ProductsService returns observable. Async pipe is used for displaying data from ProductsService.
+31. OrderByPipe is created for sorting an array of objects. The pipe has two parameters: a string which is a field for sorting an array and a boolean which determines a sorting order. By default, a sort is in an descending order.
+32. OrderByPipe is used for sorting products in a cart.
+33. Products could be sorted by their prices, quantities or names.

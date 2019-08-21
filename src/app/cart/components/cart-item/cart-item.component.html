@@ -1,7 +1,7 @@
 <div>
   <table appBackgroundColor>
     <tr><th>{{product.name}}</th></tr>
-    <tr><td>Price</td><td>{{product.price}}</td></tr>
+    <tr><td>Price</td><td>{{product.price | currency: 'USD'}}</td></tr>
     <tr>
       <td>Quantity</td>
       <td>{{product.quantity}}</td>
